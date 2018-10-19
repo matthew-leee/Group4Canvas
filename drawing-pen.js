@@ -7,7 +7,7 @@ class DrawingPen extends PaintFunction {
 
     onMouseDown(coord) {
         clickCount++;
-        console.log (clickCount);
+        console.log(clickCount);
         this.contextReal.fillStyle = `${fill}`;
         this.contextReal.fillStyle = `${fill}`;
         this.contextDraft.fillStyle = `${fill}`;
@@ -35,36 +35,31 @@ class DrawingPen extends PaintFunction {
         }
     }
 
-    onDragging(coord){
-        if (clickArr.length > 1){
+    onDragging(coord) {
+        if (clickArr.length > 1) {
             let x = clickArr.length;
             this.contextDraft.beginPath();
-            this.contextDraft.moveTo(clickArr[x-2][0],clickArr[x-2][1]);
-            this.contextDraft.quadraticCurveTo(coord[0], coord[1], clickArr[x-1][0], clickArr[x-1][1]);
+            this.contextDraft.moveTo(clickArr[x - 2][0], clickArr[x - 2][1]);
+            this.contextDraft.quadraticCurveTo(coord[0], coord[1], clickArr[x - 1][0], clickArr[x - 1][1]);
             this.contextDraft.stroke();
 
             this.contextReal.beginPath();
-            this.contextReal.moveTo(clickArr[x-2][0],clickArr[x-2][1]);
-            this.contextReal.quadraticCurveTo(coord[0], coord[1], clickArr[x-1][0], clickArr[x-1][1]);
+            this.contextReal.moveTo(clickArr[x - 2][0], clickArr[x - 2][1]);
+            this.contextReal.quadraticCurveTo(coord[0], coord[1], clickArr[x - 1][0], clickArr[x - 1][1]);
             this.contextReal.stroke();
         }
     }
-    onMouseMove(){}
-    onMouseUp(){}
-    onMouseLeave(){}
-    onMouseEnter(){}
-    onKeyEnter(){
-        $("body").on("keypress", e => {
-            let code = (e.keyCode ? e.keyCode : e.which);
-            if (code == 13){
-                console.log ("enter!")
-                this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
-            }
-        })
-        // $("#finish").on("click", () =>{
-        //     console.log('clicked');
-        //     this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
-        // })
+    onMouseMove() { }
+    onMouseUp() { }
+    onMouseLeave() { }
+    onMouseEnter() { }
+    onKeyEnter() {
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     }
 
+    // $("#finish").on("click", () =>{
+    //     console.log('clicked');
+    //     this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
+    // })
 }
+

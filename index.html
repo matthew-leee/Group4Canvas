@@ -35,20 +35,27 @@
         <div class="style">
             <div class="fill">
                 <button class="style" id="styleFill">Fill</button>
-                <div class="dropDown" id="dropFill">
+                <!-- <div class="dropDown" id="dropFill">
                     <button>red</button>
                     <button>blue</button>
                     <button>green</button>
-                </div>
-                <!-- <div class="dropDown" id="slideFill">
+                </div> -->
+                <div class="dropDown" id="slideFill">
                     <p>
-                        <label for="amount">Adjust Color (Max: 255) : </label>
-                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        <label for="colorRed">Red (Max: 255) : </label>
+                        <input type="text" id="colorRed" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        <label for="colorGreen">Green (Max: 255) : </label>
+                        <input type="text" id="colorGreen" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        <label for="colorBlue">Blue (Max: 255) : </label>
+                        <input type="text" id="colorBlue" readonly style="border:0; color:#f6931f; font-weight:bold;">
                     </p>
+                    <div class="colorBox"></div>
+                    <div class="colorSlider">
                         <div class="slider" id="sliderColorRed"></div>
                         <div class="slider" id="sliderColorBlue"></div>
                         <div class="slider" id="sliderColorGreen"></div>
-                </div> -->
+                    </div>    
+                </div>
             </div>
             <div class="stroke">
                 <button class="style" id="styleStroke">Stroke</button>

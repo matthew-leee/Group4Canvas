@@ -1,0 +1,113 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+</head>
+
+<body>
+    <!-- in case browser has no support for canvas then "fuck" will be shown -->
+    <div class="canvas">
+
+        <div class="buttons">
+            <div class="drawRect">
+                <button class="drop" id="drawRect">Rect</button>
+            </div>
+            <div class="drawCircle">
+                <button class="drop" id="drawCircle">Circle</button>
+            </div>
+            <div class="drawLine">
+                <button class="drop" id="drawLine">Line</button>
+            </div>
+            <div class="drawStLine">
+                <button class="drop" id="drawStLine">StLine</button>
+            </div>
+            <div class="drawPen">
+                <button class="drop" id="drawPen">Pen</button>
+            </div>
+        </div>
+
+        <div class="style">
+            <div class="fill">
+                <button class="style" id="styleFill">Fill</button>
+                <div class="dropDown" id="dropFill">
+                    <button>red</button>
+                    <button>blue</button>
+                    <button>green</button>
+                </div>
+                <!-- <div class="dropDown" id="slideFill">
+                    <p>
+                        <label for="amount">Adjust Color (Max: 255) : </label>
+                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                    </p>
+                        <div class="slider" id="sliderColorRed"></div>
+                        <div class="slider" id="sliderColorBlue"></div>
+                        <div class="slider" id="sliderColorGreen"></div>
+                </div> -->
+            </div>
+            <div class="stroke">
+                <button class="style" id="styleStroke">Stroke</button>
+                <div class="dropDown" id="dropStroke">
+                    <p>
+                        <label for="amount">Adjust Stroke (Max: 100px) : </label>
+                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                    </p>
+                    <div class="slider" id="slider-range-max"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvasBox">
+            <canvas id="canvas-draft" width="1000px" height="1000px" style="border:1px black solid">fuck</canvas>
+            <canvas id="canvas-real" width="1000px" height="1000px" style="border:1px black solid">fuck</canvas>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+    <script type='text/javascript' src="canvas-common.js"></script>
+    <script type='text/javascript' src="drawing-line.js"></script>
+    <script type='text/javascript' src="drawing-rectangle.js"></script>
+    <script type='text/javascript' src="drawing-circle.js"></script>
+    <script type='text/javascript' src="drawing-stLine.js"></script>
+    <script type='text/javascript' src="drawing-pen.js"></script>
+    <script type='text/javascript'>
+
+        $("#drawRect").click(() => {
+            currentFunction = new DrawingRectangle(contextReal, contextDraft);
+        })
+
+        $("#drawLine").click(() => {
+            currentFunction = new DrawingLine(contextReal, contextDraft);
+        })
+
+        $("#drawStLine").click(() => {
+            currentFunction = new DrawingStLine(contextReal, contextDraft);
+        })
+
+        $("#drawCircle").click(() => {
+            currentFunction = new DrawingCircle(contextReal, contextDraft);
+        })
+
+        $("#drawPen").click(() => {
+            currentFunction = new DrawingPen(contextReal, contextDraft);
+            // $(".drawPen").after(`
+            // <button id = "finish">Finish</button>
+            // `)
+        })
+
+
+    </script>
+
+</body>
+
+</html>

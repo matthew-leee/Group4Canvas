@@ -83,7 +83,6 @@ $("#slider-range-max").slider({
     }
 });
 
-$("slider")
 $("#amount").val($("#slider-range-max").slider("value"));
 
 // //color slider

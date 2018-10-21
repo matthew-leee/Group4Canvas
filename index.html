@@ -41,20 +41,12 @@
                     <button>green</button>
                 </div> -->
                 <div class="dropDown" id="slideFill">
-                    <p>
-                        <label for="colorRed">Red (Max: 255) : </label>
-                        <input type="text" id="colorRed" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                        <label for="colorGreen">Green (Max: 255) : </label>
-                        <input type="text" id="colorGreen" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                        <label for="colorBlue">Blue (Max: 255) : </label>
-                        <input type="text" id="colorBlue" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                    </p>
-                    <div class="colorBox"></div>
-                    <div class="colorSlider">
-                        <div class="slider" id="sliderColorRed"></div>
-                        <div class="slider" id="sliderColorBlue"></div>
-                        <div class="slider" id="sliderColorGreen"></div>
-                    </div>    
+                    <p id="slideRed">Red (Max: 255): 125</p>
+                    <input type="range" min="0" max="255" value="125" class="slider" id="red" oninput="slide()"> 
+                    <p id="slideGreen">Green (Max: 255): 125</p> 
+                    <input type="range" min="0" max="255" value="125" class="slider" id="green" oninput="slide()">
+                    <p id="slideBlue">Blue (Max: 255): 125</p>
+                    <input type="range" min="0" max="255" value="125" class="slider" id="blue" oninput="slide()">
                 </div>
             </div>
             <div class="stroke">
@@ -81,6 +73,7 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
+    <script type='text/javascript' src="colorSlider.js"></script>
     <script type='text/javascript' src="canvas-common.js"></script>
     <script type='text/javascript' src="drawing-line.js"></script>
     <script type='text/javascript' src="drawing-rectangle.js"></script>

@@ -11,9 +11,12 @@ class DrawingPen extends PaintFunction {
     onMouseDown(coord) {
         
         this.contextReal.fillStyle = `${fill}`;
-        this.contextReal.fillStyle = `${fill}`;
+        this.contextReal.strokeStyle = `${fill}`;
+        this.contextReal.lineWidth = stroke;
+        this.contextReal.lineCap = "round";
         this.contextDraft.fillStyle = `${fill}`;
-        this.contextDraft.fillStyle = `${fill}`;
+        this.contextDraft.strokeStyle = `${fill}`;
+        this.contextDraft.lineCap = "round";
         this.origX = coord[0];
         this.origY = coord[1];
         clickArr.push([coord[0], coord[1]])
@@ -22,21 +25,6 @@ class DrawingPen extends PaintFunction {
         this.contextDraft.arc(this.origX, this.origY, 10, 0, 2 * Math.PI)
         this.contextDraft.stroke();
         clickCount++;
-        console.log(clickCount);
-        // if (clickCount > 0) {
-        //     this.contextDraft.beginPath();
-        //     this.contextDraft.moveTo(clickArr[0][0], clickArr[0][1]);
-        //     for (let i = 0; i < clickCount; i++) {
-        //         this.contextDraft.lineTo(clickArr[i][0], clickArr[i][1]);
-        //         this.contextDraft.stroke();
-        //     };
-        //     this.contextReal.beginPath();
-        //     this.contextReal.moveTo(clickArr[0][0], clickArr[0][1]);
-        //     for (let j = 0; j < clickCount; j++) {
-        //         this.contextReal.lineTo(clickArr[j][0], clickArr[j][1]);
-        //         this.contextReal.stroke();
-        //     };
-        // }
     }
 
     onDragging(coord) {
@@ -69,20 +57,22 @@ class DrawingPen extends PaintFunction {
             };
         } else if (dragCount.length > 0) {
             c = clickArr.length;
-            console.log(dragCount);
-            console.log([coord[0], coord[1]]);
             this.contextReal.quadraticCurveTo(coord[0], coord[1], clickArr[c - 1][0], clickArr[c - 1][1]);
             this.contextReal.stroke();
-            dragCount.pop();
         }
     }
     onMouseLeave() { }
     onMouseEnter() { }
     onKeyEnter() {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        while (clickArr.length > 0){
-            clickArr.pop();
-        }
+        // while (clickArr.length > 0){
+        //     clickArr.pop();
+        // }
+        // while (dragCount.length > 0){
+        //     dragCount.pop();
+        // }
+        clickArr.length = 0;
+        dragCount.length = 0;
         clickCount = 0;
     }
 

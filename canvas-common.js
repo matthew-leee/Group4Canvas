@@ -1,4 +1,4 @@
-let canvasReal = document.getElementById('canvas-real');
+let canvasReal = document.getElementById('canvas-1');
 let contextReal = canvasReal.getContext('2d');
 let canvasDraft = document.getElementById('canvas-draft');
 let contextDraft = canvasDraft.getContext('2d');
@@ -75,7 +75,7 @@ $("#slider-range-max").slider({
     range: "max",
     min: 1,
     max: 100,
-    orientation: "vertical",
+    orientation: "horizontal",
     value: 1,
     slide: function (event, ui) {
         $("#amount").val(ui.value);

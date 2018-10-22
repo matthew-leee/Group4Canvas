@@ -64,7 +64,6 @@
                 </div>
             </div>
             <div class="stroke">
-                <button class="style" id="styleStroke">Stroke</button>
                 <div class="dropDown" id="dropStroke">
                     <p>
                         <label for="amount">Adjust Stroke (Max: 100px) : </label>
@@ -74,13 +73,18 @@
                 </div>
             </div>
             <div class="layer">
-
+                <div class="layerTitle">
+                    <p>Create new Layer!</p>
+                </div>
+                <ul id="sortable">
+                    <li class="ui-state-default" order="1">Layer 1</li>
+                </ul>
             </div>
         </div>
 
         <div class="canvasBox">
-            <canvas id="canvas-draft" width="900px" height="900px">fuck</canvas>
-            <canvas id="canvas-real" width="900px" height="900px">fuck</canvas>
+            <canvas id="canvas-draft" width="600px" height="600px">Bad</canvas>
+            <canvas id="canvas-1" width="600px" height="600px">Bad</canvas>
         </div>
 
     </div>
@@ -92,11 +96,13 @@
         crossorigin="anonymous"></script>
     <script type='text/javascript' src="colorSlider.js"></script>
     <script type='text/javascript' src="canvas-common.js"></script>
+    <script type='text/javascript' src="addLayer.js"></script>
     <script type='text/javascript' src="drawing-line.js"></script>
     <script type='text/javascript' src="drawing-rectangle.js"></script>
     <script type='text/javascript' src="drawing-circle.js"></script>
     <script type='text/javascript' src="drawing-stLine.js"></script>
     <script type='text/javascript' src="drawing-pen.js"></script>
+    
     <script type='text/javascript'>
 
         $("#drawRect").click(() => {

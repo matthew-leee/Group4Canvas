@@ -86,18 +86,17 @@ body{
     background: linear-gradient(to top, #8e9eab, #eef2f3)
 }
 
-#canvas-real {
+canvas {
     position: absolute;
-    z-index: 1;
     border:1px black solid;
-    background-color: white;
 }
 
-#canvas-draft {
-    position: absolute;
-    z-index: 2;
-    border:1px black solid;
+#canvas-static{
+    z-index: 0;
+    background-color: white;
 }
+#canvas-1 {z-index: 1}
+#canvas-draft {z-index: 2}
 
 .style {
     grid-area: c;

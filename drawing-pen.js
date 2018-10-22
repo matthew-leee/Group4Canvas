@@ -65,12 +65,6 @@ class DrawingPen extends PaintFunction {
     onMouseEnter() { }
     onKeyEnter() {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        // while (clickArr.length > 0){
-        //     clickArr.pop();
-        // }
-        // while (dragCount.length > 0){
-        //     dragCount.pop();
-        // }
         clickArr.length = 0;
         dragCount.length = 0;
         clickCount = 0;

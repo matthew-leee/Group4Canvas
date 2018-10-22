@@ -159,3 +159,41 @@
     background: yellow;
     cursor: pointer;
 }
+
+.layerPanel {
+    grid-area: k;
+    width: 300px;;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+
+.layerTable {
+    border-collapse: collapse;
+    width: 300px;
+}
+
+.layerTable > tr > td, .layerTable > tr > th {
+    border: 1px solid #ddd;
+    height: 50px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.layerTable > tr > th {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 30px;
+    padding: 25px;
+}
+
+.layerTable > tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.layerTable > tr:hover {
+    background-color: #ddd;
+}

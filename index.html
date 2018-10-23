@@ -49,21 +49,45 @@
                     <p>Pen tool</p>
                 </div>
             </div>
-            <div class="eraser">
-                <button class="drop" id="eraser">Eraser</button>
+            <div class="button eraser">
+                <div class="buttonContent">
+                    <i class="drop fas fa-eraser" id="eraser"></i>
+                    <p>Eraser</p>
+                </div>
             </div>
-            <div class="polygon">
-                    <button class="polygon" id="drawPolygon">Polygon</button>
+            <div class="button polygon">
+                <div class="buttonContent">
+                    <i class="drop fas fa-draw-polygon" id="drawPolygon"></i>
+                    <p>Polygon</p>
+                </div>
             </div>
-            <div class="undo">
-                    <button class="undo" id="undo">Undo</button>
+            <div class="button redo">
+                <div class="buttonContent">
+                    <i class="drop fas fa-redo" id="redo"></i>
+                    <p>Redo</p>
+                </div>
             </div>
-            <div class="redo">
-                    <button class="redo" id="redo">Redo</button>
+            <div class="button undo">
+                <div class="buttonContent">
+                    <i class="drop fas fa-undo" id="undo"></i>
+                    <p>Undo</p>
+                </div>
             </div>
+
         </div>
 
         <div class="style">
+            <div class="stylePanel">
+                <div class="fillPanel">
+                    <p>Fill</p>
+                </div>
+                <div class="strokePanel">
+                    <p>Stroke</p>
+                </div>
+                <div class="elsePanel">
+                    <p>Else</p>
+                </div>
+            </div>
             <div class="fill">
                 <!-- <button class="style" id="styleFill">Fill</button> -->
                 <div class="dropDown" id="slideFill">
@@ -150,13 +174,13 @@
         $('#drawPolygon').click(() => {
             currentFunction = new DrawingPolygon(contextReal, contextDraft);
         })
-        
-        $('#undo').on('click', function() {
-        cUndo();
+
+        $('#undo').on('click', function () {
+            cUndo();
         });
-  
-    $('#redo').on('click', function() {
-        cRedo();
+
+        $('#redo').on('click', function () {
+            cRedo();
         });
 
     </script>

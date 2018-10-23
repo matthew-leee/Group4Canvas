@@ -53,7 +53,7 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 1vw;
-    box-shadow: 0 0 20px rgb(30, 150, 255);
+    box-shadow: 0 0 1.5vw rgb(30, 150, 255);
 }
 
 .buttonContent{
@@ -82,6 +82,7 @@ body{
 .drawStLine{grid-area: a3; background-color: rgb(185,221,231)}
 .drawLine{grid-area: a4; background-color: rgb(236,177,169)}
 .drawPen{grid-area: a5; background-color: rgb(249,197,138)}
+.smile{grid-area: a6; background-color: rgb(159,195,230)}
 .eraser{grid-area: a7; background-color: rgb(245,215,122)}
 .polygon{grid-area: a8; background-color: rgb(130,230,180)}
 .redo{grid-area: a9; background-color: rgb(255,110,130)}
@@ -143,6 +144,7 @@ canvas {
     justify-content: center;
     align-items: center;
     font-size: 5vw;
+    cursor: pointer;
 }
 
 .styleTopPanel {
@@ -151,6 +153,7 @@ canvas {
     width: 100%;
     display: none;
     align-items: flex-start;
+    cursor: pointer;
 }
 .topPanel {
     width: 50%;
@@ -169,6 +172,7 @@ canvas {
     display: none;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .stroke {
@@ -179,6 +183,7 @@ canvas {
     display: none;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 #slider-range-max{
@@ -196,8 +201,17 @@ canvas {
     height: 30vh;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    background-color: rgb(125,125,125);
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(200,200,200, 1);
+    border-radius: 1vw;
+    box-shadow: 0 0 10px rgb(30, 150, 255);
+}
+
+#slideFill > p {
+    margin: 0 0 0 0;
+    border: 0 0 0 0;
+    font-size: 1vw;
 }
 
 .slider {
@@ -205,13 +219,13 @@ canvas {
     appearance: none;
     width: 10vw;
     height: 2vh;
-    background: #d3d3d3;
+    background: #FFFFFF;
     outline: none;
     opacity: 0.5;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 .slider:hover {
@@ -221,8 +235,8 @@ canvas {
 .slider::-webkit-slider-thumb{
     -webkit-appearance: none;
     appearance: none;
-    width: 15px;
-    height: 15px;
+    width: 2vh;
+    height: 2vh;
     background: yellow;
     cursor: pointer;
 }

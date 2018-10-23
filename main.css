@@ -1,8 +1,8 @@
 .canvas {
-    width: 1200px;
+    width: 1400px;
     height: 1200px;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(5, 1fr), 400px;
     grid-template-rows: repeat(6, 1fr);
     grid-template-areas: 
     "b b b b b h"
@@ -90,6 +90,7 @@
 }
 
 .style {
+    width: 300px;
     grid-area: h;
     display: grid;
     grid-template-columns: 1fr;
@@ -124,3 +125,75 @@
     height: 250px;
 }
 
+#slideFill {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgb(125,125,125)
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2000x;
+    height: 15px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.5;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: yellow;
+    cursor: pointer;
+}
+
+.layerPanel {
+    grid-area: k;
+    width: 300px;;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+
+.layerTable {
+    border-collapse: collapse;
+    width: 300px;
+}
+
+.layerTable > tr > td, .layerTable > tr > th {
+    border: 1px solid #ddd;
+    height: 50px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.layerTable > tr > th {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 30px;
+    padding: 25px;
+}
+
+.layerTable > tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.layerTable > tr:hover {
+    background-color: #ddd;
+}

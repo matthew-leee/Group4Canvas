@@ -1,4 +1,4 @@
-let canvasReal = document.getElementById('canvas-real');
+let canvasReal = document.getElementById('canvas-1');
 let contextReal = canvasReal.getContext('2d');
 let canvasDraft = document.getElementById('canvas-draft');
 let contextDraft = canvasDraft.getContext('2d');
@@ -61,7 +61,6 @@ $('body').keydown(function (e) {
     currentFunction.onKeyEnter(keypressed, e);
 });
 
-
 // controlling some buttons
 
 $("#dropFill").click(function (e) {
@@ -71,18 +70,20 @@ $("#dropFill").click(function (e) {
 })
 
 $("#styleFill").click(function () {
-    $("#dropFill").css("display", "block")
+    $("#slideFill").css("display", "flex")
 })
 
 $("#styleStroke").click(function () {
     $("#dropStroke").css("display", "block")
 })
 
+//stroke slider
+
 $("#slider-range-max").slider({
     range: "max",
     min: 1,
     max: 100,
-    orientation: "vertical",
+    orientation: "horizontal",
     value: 1,
     slide: function (event, ui) {
         $("#amount").val(ui.value);
@@ -90,9 +91,30 @@ $("#slider-range-max").slider({
     }
 });
 
-$("slider")
 $("#amount").val($("#slider-range-max").slider("value"));
 
+// //color slider
+// let colorSetter = ()=>{
+//     let r = $("#sliderColorRed").slider("value");
+//     let b = $("#sliderColorBlue").slider("value");
+//     let g = $("#sliderColorGreen").slider("value");
+//     let rgb = rgb(r,g,b)
+//     $("colorRed").val(r);
+//     $("colorGreen").val(g);
+//     $("colorBlue").val(b);
+//     $(".colorBox").css("background-color", `${rgb}`);
+//     fill = rgb;
+// }
+
+// $("#sliderColorRed, #sliderColorBlue, #sliderColorGreen").slider({
+//     range: "max",
+//     min: 0,
+//     max: 255,
+//     orientation: "horizontal",
+//     value: [1,1,1],
+//     slide: colorSetter(),
+//     change: colorSetter(),
+// })
 // document.onkeydown = function(evt) {
 //     evt = evt || window.event;
 //     var isEscape = false;

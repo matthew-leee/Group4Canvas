@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="trial.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
 </head>
 
@@ -15,20 +19,35 @@
     <div class="canvas">
 
         <div class="buttons">
-            <div class="drawRect">
-                <button class="drop" id="drawRect">Rect</button>
+            <div class="button drawRect">
+                <div class="buttonContent">
+                    <i class="drop fas fa-vector-square" id="drawRect"></i>
+                    <p>Rectangle</p>
+                </div>
             </div>
-            <div class="drawCircle">
-                <button class="drop" id="drawCircle">Circle</button>
+            <div class="button drawCircle">
+                <div class="buttonContent">
+                    <i class="drop far fa-circle" id="drawCircle"></i>
+                    <p>Circle</p>
+                </div>
             </div>
-            <div class="drawLine">
-                <button class="drop" id="drawLine">Line</button>
+            <div class="button drawStLine">
+                <div class="buttonContent">
+                    <i class="drop fas fa-pencil-ruler" id="drawStLine"></i>
+                    <p>Ruler</p>
+                </div>
             </div>
-            <div class="drawStLine">
-                <button class="drop" id="drawStLine">StLine</button>
+            <div class="button drawLine">
+                <div class="buttonContent">
+                    <i class="drop fas fa-pencil-alt" id="drawLine"></i>
+                    <p>Pencil</p>
+                </div>
             </div>
-            <div class="drawPen">
-                <button class="drop" id="drawPen">Pen</button>
+            <div class="button drawPen">
+                <div class="buttonContent">
+                    <i class="drop fas fa-pen-nib" id="drawPen"></i>
+                    <p>Pen tool</p>
+                </div>
             </div>
             <div class="eraser">
                 <button class="drop" id="eraser">Eraser</button>
@@ -46,24 +65,17 @@
 
         <div class="style">
             <div class="fill">
-                <button class="style" id="styleFill">Fill</button>
-                <div class="dropDown" id="dropFill">
-                    <button>red</button>
-                    <button>blue</button>
-                    <button>green</button>
+                <!-- <button class="style" id="styleFill">Fill</button> -->
+                <div class="dropDown" id="slideFill">
+                    <p id="slideRed">Red (Max: 255): 125</p>
+                    <input type="range" min="0" max="255" value="125" class="slider" id="red" oninput="slide()">
+                    <p id="slideGreen">Green (Max: 255): 125</p>
+                    <input type="range" min="0" max="255" value="125" class="slider" id="green" oninput="slide()">
+                    <p id="slideBlue">Blue (Max: 255): 125</p>
+                    <input type="range" min="0" max="255" value="125" class="slider" id="blue" oninput="slide()">
                 </div>
-                <!-- <div class="dropDown" id="slideFill">
-                    <p>
-                        <label for="amount">Adjust Color (Max: 255) : </label>
-                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                    </p>
-                        <div class="slider" id="sliderColorRed"></div>
-                        <div class="slider" id="sliderColorBlue"></div>
-                        <div class="slider" id="sliderColorGreen"></div>
-                </div> -->
             </div>
             <div class="stroke">
-                <button class="style" id="styleStroke">Stroke</button>
                 <div class="dropDown" id="dropStroke">
                     <p>
                         <label for="amount">Adjust Stroke (Max: 100px) : </label>
@@ -72,11 +84,20 @@
                     <div class="slider" id="slider-range-max"></div>
                 </div>
             </div>
+            <div class="layer">
+                <div class="layerTitle">
+                    <p>Create new Layer!</p>
+                </div>
+                <ul id="sortable">
+                    <li class="ui-state-default" order="1">Layer 1</li>
+                </ul>
+            </div>
         </div>
 
         <div class="canvasBox">
-            <canvas id="canvas-draft" width="1000px" height="1000px" style="border:1px black solid">fuck</canvas>
-            <canvas id="canvas-real" width="1000px" height="1000px" style="border:1px black solid">fuck</canvas>
+            <canvas id="canvas-draft" width="600px" height="600px">Bad</canvas>
+            <canvas id="canvas-1" width="600px" height="600px">Bad</canvas>
+            <canvas id="canvas-static" width="600px" height="600px">Bad</canvas>
         </div>
 
     </div>
@@ -86,7 +107,9 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
+    <script type='text/javascript' src="colorSlider.js"></script>
     <script type='text/javascript' src="canvas-common.js"></script>
+    <script type='text/javascript' src="addLayer.js"></script>
     <script type='text/javascript' src="drawing-line.js"></script>
     <script type='text/javascript' src="drawing-rectangle.js"></script>
     <script type='text/javascript' src="drawing-circle.js"></script>

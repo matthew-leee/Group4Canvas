@@ -109,8 +109,6 @@ $("#amount").val($("#slider-range-max").slider("value"));
 // };
 
 
-
-
 class PaintFunction {
     constructor() { }
     onMouseDown() { }
@@ -122,4 +120,3 @@ class PaintFunction {
     onKeyEnter() { } //new add
     onMouseDownWithoutCanvas() { } //new add
 }
-

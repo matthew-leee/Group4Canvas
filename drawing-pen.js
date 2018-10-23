@@ -7,6 +7,7 @@ class DrawingPen extends PaintFunction {
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
     }
+    
 
     onMouseDown(coord) {
         

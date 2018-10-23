@@ -36,22 +36,22 @@
 .buttons {
     grid-area: a;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     grid-template-rows: 1fr;
     grid-template-areas:
     "c d e f g";
     align-items: start;
-    width: 800px;
-    height: 200px;
+    width: 100px;
+    height: 10px;
 }
 
-.drawRect {
+/* .drawRect {
     grid-area: c;
     width: 10vw;
     position: relative;
-}
+} */
 
-.drawCircle {
+/* .drawCircle {
     grid-area: d;
     width: 10vw;
     position: relative;
@@ -73,7 +73,7 @@
     grid-area: g;
     width: 10vw;
     position: relative;
-}
+} */
 
 
 .dropDown {

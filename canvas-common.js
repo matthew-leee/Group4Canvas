@@ -17,6 +17,11 @@ $('#canvas-draft').mousedown(function (e) {
     dragging = true;
 });
 
+$('body').mousedown(function (e) {
+    if (e.offsetX > canvasReal.width || e.offsetY > canvasReal.height) {
+    currentFunction.onMouseDownWithoutCanvas() }
+});
+
 $('#canvas-draft').mousemove(function (e) {
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;
@@ -31,6 +36,9 @@ $('#canvas-draft').mouseup(function (e) {
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;
     currentFunction.onMouseUp([mouseX, mouseY], e);
+    if (cPushArray[cStep] != canvasReal.toDataURL()) {
+        cPush();
+    }
 });
 
 $('#canvas-draft').mouseleave(function (e) {
@@ -46,12 +54,12 @@ $('#canvas-draft').mouseenter(function (e) {
     currentFunction.onMouseEnter([mouseX, mouseY], e);
 });
 
-$("body").keypress(function(e){
-    let code = (e.keyCode ? e.keyCode : e.which);
-        if (code == 13){
-            currentFunction.onKeyEnter(e);
-        }
-})
+$('body').keydown(function (e) {
+    dragging = false;
+    console.log(e.which);
+    let keypressed = e.which;
+    currentFunction.onKeyEnter(keypressed, e);
+});
 
 // controlling some buttons
 
@@ -107,6 +115,21 @@ $("#amount").val($("#slider-range-max").slider("value"));
 //     slide: colorSetter(),
 //     change: colorSetter(),
 // })
+// document.onkeydown = function(evt) {
+//     evt = evt || window.event;
+//     var isEscape = false;
+//     if ("key" in evt) {
+//         isEscape = (evt.key == "Escape" || evt.key == "Esc");
+//     } else {
+//         isEscape = (evt.keyCode == 27);
+//     }
+//     if (isEscape) {
+//         var escPress = true;
+//         alert(escPress);
+//         escPress = false;
+//     }
+// };
+
 
 class PaintFunction {
     constructor() { }
@@ -116,6 +139,6 @@ class PaintFunction {
     onMouseUp() { }
     onMouseLeave() { }
     onMouseEnter() { }
-    onKeyEnter() { }
+    onKeyEnter() { } //new add
+    onMouseDownWithoutCanvas() { } //new add
 }
-

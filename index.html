@@ -78,18 +78,22 @@
 
         <div class="style">
             <div class="stylePanel">
-                <div class="fillPanel">
+                <div class="panel" id = "fillPanel">
                     <p>Fill</p>
                 </div>
-                <div class="strokePanel">
+                <div class="panel" id = "strokePanel">
                     <p>Stroke</p>
                 </div>
-                <div class="elsePanel">
-                    <p>Else</p>
-                </div>
             </div>
+            <div class="styleTopPanel">
+                    <div class="topPanel" id = "fillTopPanel">
+                        <p>Fill</p>
+                    </div>
+                    <div class="topPanel" id = "strokeTopPanel">
+                        <p>Stroke</p>
+                    </div>
+                </div>
             <div class="fill">
-                <!-- <button class="style" id="styleFill">Fill</button> -->
                 <div class="dropDown" id="slideFill">
                     <p id="slideRed">Red (Max: 255): 125</p>
                     <input type="range" min="0" max="255" value="125" class="slider" id="red" oninput="slide()">
@@ -97,6 +101,8 @@
                     <input type="range" min="0" max="255" value="125" class="slider" id="green" oninput="slide()">
                     <p id="slideBlue">Blue (Max: 255): 125</p>
                     <input type="range" min="0" max="255" value="125" class="slider" id="blue" oninput="slide()">
+                    <p id="slideA">Opacity (Max: 100): 100</p>
+                    <input type="range" min="0" max="100" value="100" class="slider" id="A" oninput="slide()">
                 </div>
             </div>
             <div class="stroke">
@@ -133,6 +139,7 @@
         crossorigin="anonymous"></script>
     <script type='text/javascript' src="colorSlider.js"></script>
     <script type='text/javascript' src="canvas-common.js"></script>
+    <script type='text/javascript' src="stylePanel.js"></script>
     <script type='text/javascript' src="addLayer.js"></script>
     <script type='text/javascript' src="drawing-line.js"></script>
     <script type='text/javascript' src="drawing-rectangle.js"></script>

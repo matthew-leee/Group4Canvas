@@ -93,44 +93,6 @@ $("#slider-range-max").slider({
 
 $("#amount").val($("#slider-range-max").slider("value"));
 
-// //color slider
-// let colorSetter = ()=>{
-//     let r = $("#sliderColorRed").slider("value");
-//     let b = $("#sliderColorBlue").slider("value");
-//     let g = $("#sliderColorGreen").slider("value");
-//     let rgb = rgb(r,g,b)
-//     $("colorRed").val(r);
-//     $("colorGreen").val(g);
-//     $("colorBlue").val(b);
-//     $(".colorBox").css("background-color", `${rgb}`);
-//     fill = rgb;
-// }
-
-// $("#sliderColorRed, #sliderColorBlue, #sliderColorGreen").slider({
-//     range: "max",
-//     min: 0,
-//     max: 255,
-//     orientation: "horizontal",
-//     value: [1,1,1],
-//     slide: colorSetter(),
-//     change: colorSetter(),
-// })
-// document.onkeydown = function(evt) {
-//     evt = evt || window.event;
-//     var isEscape = false;
-//     if ("key" in evt) {
-//         isEscape = (evt.key == "Escape" || evt.key == "Esc");
-//     } else {
-//         isEscape = (evt.keyCode == 27);
-//     }
-//     if (isEscape) {
-//         var escPress = true;
-//         alert(escPress);
-//         escPress = false;
-//     }
-// };
-
-
 class PaintFunction {
     constructor() { }
     onMouseDown() { }

@@ -4,6 +4,7 @@ class DrawingPen extends PaintFunction {
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
     }
+    
 
     onMouseDown(coord) {
         clickCount++;
@@ -20,7 +21,7 @@ class DrawingPen extends PaintFunction {
         this.contextDraft.stroke();
         if (clickCount > 0) {
             this.contextDraft.beginPath();
-            this.contextDraft.moveTo(clickArr[0][0], clickArr[0], [1]);
+            this.contextDraft.moveTo(clickArr[0][0], clickArr[0],[1]);
             for (let i = 0; i < clickCount; i++) {
                 this.contextDraft.lineTo(clickArr[i][0], clickArr[i][1])
             };

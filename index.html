@@ -30,6 +30,18 @@
             <div class="drawPen">
                 <button class="drop" id="drawPen">Pen</button>
             </div>
+            <div class="eraser">
+                <button class="drop" id="eraser">Eraser</button>
+            </div>
+            <div class="polygon">
+                    <button class="polygon" id="drawPolygon">Polygon</button>
+            </div>
+            <div class="undo">
+                    <button class="undo" id="undo">Undo</button>
+            </div>
+            <div class="redo">
+                    <button class="redo" id="redo">Redo</button>
+            </div>
         </div>
 
         <div class="style">
@@ -80,7 +92,12 @@
     <script type='text/javascript' src="drawing-circle.js"></script>
     <script type='text/javascript' src="drawing-stLine.js"></script>
     <script type='text/javascript' src="drawing-pen.js"></script>
+    <script type='text/javascript' src="drawing-polygon.js"></script>
+    <script type='text/javascript' src="eraser.js"></script>
+    <script type='text/javascript' src="reundo.js"></script>
     <script type='text/javascript'>
+        //defult
+        currentFunction = new DrawingLine(contextReal, contextDraft);
 
         $("#drawRect").click(() => {
             currentFunction = new DrawingRectangle(contextReal, contextDraft);
@@ -104,7 +121,20 @@
             // <button id = "finish">Finish</button>
             // `)
         })
-
+        $('#eraser').click(() => {
+            currentFunction = new Eraser(contextReal, contextDraft);
+        })
+        $('#drawPolygon').click(() => {
+            currentFunction = new DrawingPolygon(contextReal, contextDraft);
+        })
+        
+        $('#undo').on('click', function() {
+        cUndo();
+        });
+  
+    $('#redo').on('click', function() {
+        cRedo();
+        });
 
     </script>
 

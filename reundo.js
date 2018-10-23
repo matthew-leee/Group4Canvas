@@ -17,6 +17,7 @@ function cUndo() {
         contextReal.clearRect(0,0,canvasReal.width,canvasReal.height)
         canvasPic.onload = function () { contextReal.drawImage(canvasPic, 0, 0); }
         document.title = cStep + ":" + cPushArray.length;
+        clickCount = 0;
     }
 }
 function cRedo() {
@@ -27,5 +28,6 @@ function cRedo() {
         contextReal.clearRect(0,0,canvasReal.width,canvasReal.height)
         canvasPic.onload = function () { contextReal.drawImage(canvasPic, 0, 0); }
         document.title = cStep + ":" + cPushArray.length;
+        clickCount = 0;
     }
 }

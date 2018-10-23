@@ -25,6 +25,10 @@ class DrawingPen extends PaintFunction {
         this.contextDraft.beginPath();
         this.contextDraft.arc(this.origX, this.origY, 10, 0, 2 * Math.PI)
         this.contextDraft.stroke();
+        if (clickCount <= 0) {
+        this.contextReal.beginPath();
+        }
+        this.contextReal.stroke();
         clickCount++;
     }
 
@@ -35,7 +39,9 @@ class DrawingPen extends PaintFunction {
             this.contextDraft.beginPath();
             this.contextDraft.moveTo(clickArr[c - 2][0], clickArr[c - 2][1]);
             this.contextDraft.quadraticCurveTo(coord[0], coord[1], clickArr[c - 1][0], clickArr[c - 1][1]);
+            this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             this.contextDraft.stroke();
+
 
             this.contextReal.beginPath();
             this.contextReal.moveTo(clickArr[c - 2][0], clickArr[c - 2][1]);
@@ -66,9 +72,9 @@ class DrawingPen extends PaintFunction {
     onMouseEnter() { }
     onKeyEnter() {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        clickArr.length = 0;
-        dragCount.length = 0;
         clickCount = 0;
+        clickArr =[];
+        dragCount =[];
     }
 
     // $("#finish").on("click", () =>{
@@ -76,4 +82,3 @@ class DrawingPen extends PaintFunction {
     //     this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
     // })
 }
-

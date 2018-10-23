@@ -19,6 +19,7 @@
     <div class="canvas">
 
         <div class="buttons">
+            
             <div class="button drawRect">
                 <div class="buttonContent">
                     <i class="drop fas fa-vector-square" id="drawRect"></i>
@@ -113,11 +114,18 @@
             </div>
             <div class="stroke">
                 <div class="dropDown" id="dropStroke">
-                    <p>
-                        <label for="amount">Adjust Stroke (Max: 100px) : </label>
-                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                    </p>
-                    <div class="slider" id="slider-range-max"></div>
+                    <p id="slideStroke">Stroke (Max: 100): 1</p>
+                    <input type="range" min="0" max="100" value="1" class="slider" id="stroke" oninput="slideStroke()">
+                </div>
+                <div class="dropDown" id="slideFillS">
+                    <p id="slideRedS">Red (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="redS" oninput="slideStroke()">
+                    <p id="slideGreenS">Green (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="greenS" oninput="slideStroke()">
+                    <p id="slideBlueS">Blue (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="blueS" oninput="slideStroke()">
+                    <p id="slideAS">Opacity (Max: 100): 100</p>
+                    <input type="range" min="0" max="100" value="100" class="slider" id="AS" oninput="slideStroke()">
                 </div>
             </div>
             <div class="layer">
@@ -143,8 +151,9 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
-    <script type='text/javascript' src="colorSlider.js"></script>
     <script type='text/javascript' src="canvas-common.js"></script>
+    <script type='text/javascript' src="fillSlider.js"></script>
+    <script type='text/javascript' src="strokeSlider.js"></script>
     <script type='text/javascript' src="stylePanel.js"></script>
     <script type='text/javascript' src="addLayer.js"></script>
     <script type='text/javascript' src="drawing-line.js"></script>
@@ -156,7 +165,25 @@
     <script type='text/javascript' src="eraser.js"></script>
     <script type='text/javascript' src="reundo.js"></script>
     <script type='text/javascript'>
-        //defult
+        //responsive
+        $(window).on("resize", ()=>{
+            let w = $(window).width();
+            let h = $(window).height();
+            if (w < 1000 || h < 700){
+                console.log ("why your screen is so small")
+                $("canvas").attr({
+                    width: "350px",
+                    height: "500px",
+                }) 
+            } else if (w >= 1000 || h >= 700){
+                $("canvas").attr({
+                    width: "600px",
+                    height: "600px",
+                })
+            }
+        })
+
+        //default
         currentFunction = new DrawingLine(contextReal, contextDraft);
 
         $("#drawRect").click(() => {
@@ -177,9 +204,6 @@
 
         $("#drawPen").click(() => {
             currentFunction = new DrawingPen(contextReal, contextDraft);
-            // $(".drawPen").after(`
-            // <button id = "finish">Finish</button>
-            // `)
         })
         $('#eraser').click(() => {
             currentFunction = new Eraser(contextReal, contextDraft);

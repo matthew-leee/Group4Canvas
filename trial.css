@@ -90,7 +90,7 @@ body{
 
 .canvasBox {
     grid-area: b;
-    width: 62vw;
+    width: 62.1vw;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -181,20 +181,14 @@ canvas {
     grid-area: d;
     margin-top: 10vh;
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
 
-#slider-range-max{
-    margin: 10px;
-    display: block;
-    background-color: red;
-    width: 200px;
-    height: 15px;
-}
 
-#slideFill {
+#slideFill, #slideFillS {
     align-self: center;
     justify-self: center;
     width: 15vw;
@@ -208,7 +202,7 @@ canvas {
     box-shadow: 0 0 10px rgb(30, 150, 255);
 }
 
-#slideFill > p {
+#slideFill > p, #slideFillS > p, #slideStroke{
     margin: 0 0 0 0;
     border: 0 0 0 0;
     font-size: 1vw;
@@ -259,8 +253,8 @@ ul {
 li, .layerTitle > p { 
     margin: 5px; 
     padding: 5px; 
-    width: 300px; 
-    height: 50px;
+    width: 18vw; 
+    height: 3vw;
     background-color: aquamarine;
     cursor: pointer;
 }

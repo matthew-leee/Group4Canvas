@@ -8,7 +8,7 @@ class DrawingStLine extends PaintFunction{
 
     
     onMouseDown(coord){
-        this.contextReal.strokeStyle = `${fill}`;
+        this.contextReal.strokeStyle = `${strokeStyle}`;
         this.contextReal.lineJoin = "round";
         this.contextReal.lineWidth = stroke;
         this.origX = coord[0];
@@ -17,7 +17,7 @@ class DrawingStLine extends PaintFunction{
         this.contextReal.moveTo(this.origX, this.origY);
     }
     onDragging(coord){
-        this.contextDraft.strokeStyle = `${fill}`;
+        this.contextDraft.strokeStyle = `${strokeStyle}`;
         this.contextDraft.lineJoin = "round";
         this.contextDraft.lineWidth = stroke;
         this.contextDraft.beginPath();

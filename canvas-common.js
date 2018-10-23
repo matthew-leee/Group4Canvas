@@ -6,6 +6,7 @@ let currentFunction;
 let dragging = false;
 let fill;
 let stroke;
+let strokeStyle;
 let radius;
 let clickCount = 0;
 let clickArr = [];
@@ -79,19 +80,7 @@ $("#styleStroke").click(function () {
 
 //stroke slider
 
-$("#slider-range-max").slider({
-    range: "max",
-    min: 1,
-    max: 100,
-    orientation: "horizontal",
-    value: 1,
-    slide: function (event, ui) {
-        $("#amount").val(ui.value);
-        stroke = ui.value;
-    }
-});
 
-$("#amount").val($("#slider-range-max").slider("value"));
 
 class PaintFunction {
     constructor() { }

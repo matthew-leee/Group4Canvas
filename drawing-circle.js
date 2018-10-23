@@ -11,7 +11,7 @@ class DrawingCircle extends PaintFunction{
         this.origY = coord[1];
         this.contextReal.beginPath();
         this.contextReal.lineWidth = stroke;
-        this.contextReal.strokeStyle = `${fill}`;
+        this.contextReal.strokeStyle = `${strokeStyle}`;
         this.contextReal.fillStyle = `${fill}`;
        
         
@@ -19,7 +19,7 @@ class DrawingCircle extends PaintFunction{
     onDragging(coord){
         this.contextDraft.beginPath();
         this.contextDraft.lineWidth = stroke;
-        this.contextDraft.strokeStyle = `${fill}`;
+        this.contextDraft.strokeStyle = `${strokeStyle}`;
         this.contextDraft.fillStyle = `${fill}`;
         
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);

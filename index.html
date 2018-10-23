@@ -49,23 +49,51 @@
                     <p>Pen tool</p>
                 </div>
             </div>
-            <div class="eraser">
-                <button class="drop" id="eraser">Eraser</button>
+            <div class="button eraser">
+                <div class="buttonContent">
+                    <i class="drop fas fa-eraser" id="eraser"></i>
+                    <p>Eraser</p>
+                </div>
             </div>
-            <div class="polygon">
-                    <button class="polygon" id="drawPolygon">Polygon</button>
+            <div class="button polygon">
+                <div class="buttonContent">
+                    <i class="drop fas fa-draw-polygon" id="drawPolygon"></i>
+                    <p>Polygon</p>
+                </div>
             </div>
-            <div class="undo">
-                    <button class="undo" id="undo">Undo</button>
+            <div class="button redo">
+                <div class="buttonContent">
+                    <i class="drop fas fa-redo" id="redo"></i>
+                    <p>Redo</p>
+                </div>
             </div>
-            <div class="redo">
-                    <button class="redo" id="redo">Redo</button>
+            <div class="button undo">
+                <div class="buttonContent">
+                    <i class="drop fas fa-undo" id="undo"></i>
+                    <p>Undo</p>
+                </div>
             </div>
+
         </div>
 
         <div class="style">
+            <div class="stylePanel">
+                <div class="panel" id = "fillPanel">
+                    <p>Fill</p>
+                </div>
+                <div class="panel" id = "strokePanel">
+                    <p>Stroke</p>
+                </div>
+            </div>
+            <div class="styleTopPanel">
+                    <div class="topPanel" id = "fillTopPanel">
+                        <p>Fill</p>
+                    </div>
+                    <div class="topPanel" id = "strokeTopPanel">
+                        <p>Stroke</p>
+                    </div>
+                </div>
             <div class="fill">
-                <!-- <button class="style" id="styleFill">Fill</button> -->
                 <div class="dropDown" id="slideFill">
                     <p id="slideRed">Red (Max: 255): 125</p>
                     <input type="range" min="0" max="255" value="125" class="slider" id="red" oninput="slide()">
@@ -73,6 +101,8 @@
                     <input type="range" min="0" max="255" value="125" class="slider" id="green" oninput="slide()">
                     <p id="slideBlue">Blue (Max: 255): 125</p>
                     <input type="range" min="0" max="255" value="125" class="slider" id="blue" oninput="slide()">
+                    <p id="slideA">Opacity (Max: 100): 100</p>
+                    <input type="range" min="0" max="100" value="100" class="slider" id="A" oninput="slide()">
                 </div>
             </div>
             <div class="stroke">
@@ -109,6 +139,7 @@
         crossorigin="anonymous"></script>
     <script type='text/javascript' src="colorSlider.js"></script>
     <script type='text/javascript' src="canvas-common.js"></script>
+    <script type='text/javascript' src="stylePanel.js"></script>
     <script type='text/javascript' src="addLayer.js"></script>
     <script type='text/javascript' src="drawing-line.js"></script>
     <script type='text/javascript' src="drawing-rectangle.js"></script>
@@ -150,13 +181,13 @@
         $('#drawPolygon').click(() => {
             currentFunction = new DrawingPolygon(contextReal, contextDraft);
         })
-        
-        $('#undo').on('click', function() {
-        cUndo();
+
+        $('#undo').on('click', function () {
+            cUndo();
         });
-  
-    $('#redo').on('click', function() {
-        cRedo();
+
+        $('#redo').on('click', function () {
+            cRedo();
         });
 
     </script>

@@ -35,5 +35,4 @@ class DrawingStLine extends PaintFunction{
     onMouseLeave(){}
     onMouseEnter(){}
     onKeyEnter(){}
-
 }

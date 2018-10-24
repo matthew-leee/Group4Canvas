@@ -162,6 +162,7 @@
     <script type='text/javascript' src="drawing-stLine.js"></script>
     <script type='text/javascript' src="drawing-pen.js"></script>
     <script type='text/javascript' src="drawing-polygon.js"></script>
+    <script type='text/javascript' src="smiley-face.js"></script>
     <script type='text/javascript' src="eraser.js"></script>
     <script type='text/javascript' src="reundo.js"></script>
     <script type='text/javascript'>
@@ -209,6 +210,10 @@
         })
         $('#drawPolygon').click(() => {
             currentFunction = new DrawingPolygon(contextReal, contextDraft);
+        })
+
+        $("#smile").click(()=>{
+            currentFunction = new Smiley(contextReal, contextDraft);
         })
 
         $('#undo').on('click', function () {

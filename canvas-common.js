@@ -1,4 +1,4 @@
-let canvasReal = document.getElementById('canvas-1');
+// let canvasReal = document.getElementById('canvas-1');
 let contextReal = canvasReal.getContext('2d');
 let canvasDraft = document.getElementById('canvas-draft');
 let contextDraft = canvasDraft.getContext('2d');

@@ -9,6 +9,7 @@ let layerCreate = false;
 let fill;
 let stroke;
 let strokeStyle;
+let bgColor;
 let radius;
 let clickCount = 0;
 let clickArr = [];

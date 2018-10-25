@@ -54,6 +54,13 @@ body{
     align-items: center;
     border-radius: 1vw;
     box-shadow: 0 0 1.5vw rgb(30, 150, 255);
+    opacity: 0.85;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.button:hover {
+    opacity: 1
 }
 
 .buttonContent{
@@ -66,6 +73,12 @@ body{
     text-decoration: none;
     margin: auto;
     text-shadow: 0 0 10px rgb(255,265,45);
+    -webkit-transition: .2s;
+    transition: font-size .2s;
+}
+
+.drop:hover{
+    font-size: 4.2vw;
 }
 
 .buttonContent > p {
@@ -145,8 +158,8 @@ canvas {
 .stylePanel2 {grid-area: f}
 .stylePanel3 {grid-area: g}
 
-#fillPanel, #fillTopPanel, #imgPanel{background-color: rgba(65,74,76,0.3);}
-#strokePanel, #strokeTopPanel, #savePanel{background-color: rgba(35,43,43,0.3);}
+#fillPanel, #fillTopPanel, #imgPanel, #imgTopPanel{background-color: rgba(65,74,76,0.3);}
+#strokePanel, #strokeTopPanel, #savePanel, #bgTopPanel{background-color: rgba(35,43,43,0.3);}
 
 .panel {
     width: 100%;
@@ -168,6 +181,15 @@ canvas {
     cursor: pointer;
 }
 
+.stylePanel3 > .panel2 {
+    -webkit-transition: .2s;
+    transition: font-size .2s;
+}
+
+.stylePanel3 > .panel2:hover {
+    font-size: 6vw;
+}
+
 .styleTopPanel {
     grid-area: d;
     height: 10vh;
@@ -176,6 +198,16 @@ canvas {
     align-items: flex-start;
     cursor: pointer;
 }
+
+.styleTopPanel2{
+    grid-area: f;
+    height: 5vh;
+    width: 100%;
+    display: none;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
 .topPanel {
     width: 50%;
     height: 100%;
@@ -208,8 +240,9 @@ canvas {
     cursor: pointer;
 }
 
-.image {
-    height: 100%;
+.image, .bgColor {
+    margin-top: 5vh;
+    height: 20vh;
     width: 100%;
     grid-area: f;
     display: none;
@@ -254,7 +287,21 @@ canvas {
     box-shadow: 0 0 10px rgb(30, 150, 255);
 }
 
-#slideFill > p, #slideFillS > p, #slideStroke{
+#slideBgC {
+    align-self: center;
+    justify-self: center;
+    width: 15vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(200,200,200, 1);
+    border-radius: 0.5vw;
+    box-shadow: 0 0 10px rgb(30, 150, 255);
+}
+
+#slideFill > p, #slideFillS > p, #slideStroke, #slideBgC > p{
     margin: 0 0 0 0;
     border: 0 0 0 0;
     font-size: 1vw;
@@ -272,6 +319,20 @@ canvas {
     transition: opacity .2s;
     margin-top: 1vh;
     margin-bottom: 1vh;
+}
+
+#slideBgC > .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10vw;
+    height: 1.5vh;
+    background: #FFFFFF;
+    outline: none;
+    opacity: 0.5;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
 }
 
 .slider:hover {

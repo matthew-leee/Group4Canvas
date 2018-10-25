@@ -5,12 +5,13 @@ class addImage extends PaintFunction {
         super();
         this.contextDraft = contextDraft;
         this.contextReal = contextReal;
-        img.src=source;
+        this.img = img;
+        this.img.src = source; 
     }
 
     onMouseDown() {
-
-        contextReal.drawImage(img,0,0);
+        console.log ("image added")
+        contextReal.drawImage(this.img,0,0);
      }
     onDragging() { }
     onMouseMove() { }

@@ -112,21 +112,26 @@ canvas {
 #canvas-1 {z-index: 1}
 #canvas-draft {z-index: 2}
 
+.save {
+    top: 75vh;
+}
+
 .style {
     grid-area: c;
     display: grid;
     grid-template-columns: 19vw;
-    grid-template-rows: 25vh 25vh 50vh;
+    grid-template-rows: 25vh 25vh 25vh 25vh;
     grid-template-areas: 
     "d"
     "d"
-    "f";
+    "f"
+    "g";
     align-items: flex-start;
     background: linear-gradient(to bottom, #f1f2b5, #135058);
 }
 
-.stylePanel{
-    grid-area: d;
+.stylePanel, .stylePanel2, .stylePanel3{
+    /* grid-area: d; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -136,11 +141,26 @@ canvas {
     position: relative;
     color: white;
 }
-#fillPanel, #fillTopPanel{background-color: rgba(65,74,76,0.3);}
-#strokePanel, #strokeTopPanel{background-color: rgba(35,43,43,0.3);}
+.stylePanel {grid-area: d}
+.stylePanel2 {grid-area: f}
+.stylePanel3 {grid-area: g}
+
+#fillPanel, #fillTopPanel, #imgPanel{background-color: rgba(65,74,76,0.3);}
+#strokePanel, #strokeTopPanel, #savePanel{background-color: rgba(35,43,43,0.3);}
+
 .panel {
     width: 100%;
     height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+    cursor: pointer;
+}
+
+.panel2 {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,7 +256,9 @@ canvas {
     cursor: pointer;
 }
 
-.layer {
+
+
+/* .layer {
     grid-area: f;
     display: flex;
     justify-content: center;
@@ -263,4 +285,4 @@ li, .layerTitle > p {
 
 .layerTitle > p {
     background-color: rgba(255, 217, 0, 1);
-}
+} */

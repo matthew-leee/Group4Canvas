@@ -128,6 +128,18 @@
                     <input type="range" min="0" max="100" value="100" class="slider" id="AS" oninput="slideStroke()">
                 </div>
             </div>
+
+            <div class="stylePanel2">
+                <div class="panel2" id="imgPanel">
+                    <p>+Image</p>
+                </div>
+            </div>
+
+            <div class="stylePanel3">
+                <div class="panel2" id="savePanel">
+                    <p>Save</p>
+                </div>
+            </div>
             <!-- <div class="layer">
                 <div class="layerTitle">
                     <p>Create new Layer!</p>
@@ -151,7 +163,7 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
-    
+
     <script type='text/javascript' src="canvas-common.js"></script>
     <!-- <script type='text/javascript' src="addLayer.js"></script> -->
     <script type='text/javascript' src="fillSlider.js"></script>
@@ -217,7 +229,7 @@
             currentFunction = new DrawingPolygon(contextReal, contextDraft);
         })
 
-        $("#smile").click(()=>{
+        $("#smile").click(() => {
             currentFunction = new Smiley(contextReal, contextDraft);
         })
 

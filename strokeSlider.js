@@ -14,3 +14,4 @@ function slideStroke() {
     $("#slideFillS").css("background-color", `rgba(${rS}, ${gS}, ${bS}, ${aS})`)
     strokeStyle= `rgba(${rS}, ${gS}, ${bS}, ${aS})`
 }
+

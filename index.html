@@ -131,13 +131,22 @@
 
             <div class="stylePanel2">
                 <div class="panel2" id="imgPanel">
-                    <p>+Image</p>
+                    <p>+Bg</p>
                 </div>
             </div>
 
             <div class="stylePanel3">
                 <div class="panel2" id="savePanel">
                     <p>Save</p>
+                </div>
+            </div>
+
+            <div class="styleTopPanel2">
+                <div class="topPanel" id="imgTopPanel">
+                    <p>Image</p>
+                </div>
+                <div class="topPanel" id="bgTopPanel">
+                    <p>Color</p>
                 </div>
             </div>
 
@@ -152,6 +161,19 @@
                     <img src="stars.jpg" alt="Starry Night" id="img4">
                 </div>
             </div>
+            <div class="bgColor">
+                <div id="slideBgC">
+                    <p id="slideRedC">Red (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="redC" oninput="slideBg()">
+                    <p id="slideGreenC">Green (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="greenC" oninput="slideBg()">
+                    <p id="slideBlueC">Blue (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="blueC" oninput="slideBg()">
+                </div>
+            </div>
+
+            
+            
 
             <div class="save">
                 
@@ -184,6 +206,7 @@
     <!-- <script type='text/javascript' src="addLayer.js"></script> -->
     <script type='text/javascript' src="fillSlider.js"></script>
     <script type='text/javascript' src="strokeSlider.js"></script>
+    <script type='text/javascript' src="bgSlider.js"></script>
     <script type='text/javascript' src="stylePanel.js"></script>
     <script type='text/javascript' src="drawing-line.js"></script>
     <script type='text/javascript' src="drawing-rectangle.js"></script>

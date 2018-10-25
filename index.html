@@ -128,14 +128,14 @@
                     <input type="range" min="0" max="100" value="100" class="slider" id="AS" oninput="slideStroke()">
                 </div>
             </div>
-            <div class="layer">
+            <!-- <div class="layer">
                 <div class="layerTitle">
                     <p>Create new Layer!</p>
                 </div>
                 <ul id="sortable">
                     <li class="ui-state-default" id="1">Layer 1</li>
                 </ul>
-            </div>
+            </div> -->
         </div>
 
         <div class="canvasBox">
@@ -151,8 +151,9 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
-    <script type='text/javascript' src="addLayer.js"></script>
+    
     <script type='text/javascript' src="canvas-common.js"></script>
+    <!-- <script type='text/javascript' src="addLayer.js"></script> -->
     <script type='text/javascript' src="fillSlider.js"></script>
     <script type='text/javascript' src="strokeSlider.js"></script>
     <script type='text/javascript' src="stylePanel.js"></script>
@@ -182,6 +183,10 @@
                 })
             }
         })
+
+        // //binding currentFunction to layer() 
+        // let layerBind = layer.bind(currentFunction);
+        // layerBind();
 
         //default
         currentFunction = new DrawingLine(contextReal, contextDraft);

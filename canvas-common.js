@@ -1,5 +1,5 @@
 
-
+let canvasReal = document.getElementById(`canvas-1`);
 let contextReal = canvasReal.getContext('2d');
 let canvasDraft = document.getElementById(`canvas-draft`);
 let contextDraft = canvasDraft.getContext('2d');
@@ -12,6 +12,8 @@ let strokeStyle;
 let radius;
 let clickCount = 0;
 let clickArr = [];
+
+
 
 $('#canvas-draft').mousedown(function (e) {
     let mouseX = e.offsetX;

@@ -1,3 +1,5 @@
+strokeStyle= `rgba(200,200,200,1)`
+aSS = 1;
 function slideStroke() {
     //control lineWidth
     stroke = document.getElementById("stroke").value;
@@ -13,5 +15,6 @@ function slideStroke() {
     $("#slideAS").text(`Opacity (Max: 100): ${Math.round(aS*100)}`);
     $("#slideFillS").css("background-color", `rgba(${rS}, ${gS}, ${bS}, ${aS})`)
     strokeStyle= `rgba(${rS}, ${gS}, ${bS}, ${aS})`
+    aSS = aS;
 }
 

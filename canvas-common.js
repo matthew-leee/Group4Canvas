@@ -1,4 +1,3 @@
-
 let canvasReal = document.getElementById(`canvas-1`);
 let contextReal = canvasReal.getContext('2d');
 let canvasDraft = document.getElementById(`canvas-draft`);
@@ -9,14 +8,12 @@ let currentFunction;
 let dragging = false;
 let layerCreate = false;
 let fill;
-let stroke;
+let stroke = "1";
 let strokeStyle;
 let bgColor;
 let radius;
 let clickCount = 0;
 let clickArr = [];
-
-
 
 $('#canvas-draft').mousedown(function (e) {
     let mouseX = e.offsetX;
@@ -64,7 +61,6 @@ $('#canvas-draft').mouseenter(function (e) {
 
 $('body').keydown(function (e) {
     dragging = false;
-    console.log(e.which);
     let keypressed = e.which;
     currentFunction.onKeyEnter(keypressed, e);
 });

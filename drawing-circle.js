@@ -24,7 +24,6 @@ class DrawingCircle extends PaintFunction{
         
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         radius = Math.sqrt(Math.pow((coord[0]- this.origX),2)+Math.pow((coord[1] - this.origY),2));
-        console.log ([coord[0], coord[1], radius]);
         this.contextDraft.arc(this.origX,this.origY,radius,0,2*Math.PI)
         this.contextDraft.fill();
         this.contextDraft.stroke();

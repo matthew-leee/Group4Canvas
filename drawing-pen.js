@@ -11,12 +11,12 @@ class DrawingPen extends PaintFunction {
 
     onMouseDown(coord) {
         
-        this.contextReal.fillStyle = `${fill}`;
-        this.contextReal.strokeStyle = `${fill}`;
+        this.contextReal.fillStyle = `${strokeStyle}`;
+        this.contextReal.strokeStyle = `${strokeStyle}`;
         this.contextReal.lineWidth = stroke;
         this.contextReal.lineCap = "round";
-        this.contextDraft.fillStyle = `${fill}`;
-        this.contextDraft.strokeStyle = `${fill}`;
+        this.contextDraft.fillStyle = `${strokeStyle}`;
+        this.contextDraft.strokeStyle = `${strokeStyle}`;
         this.contextDraft.lineCap = "round";
         this.origX = coord[0];
         this.origY = coord[1];

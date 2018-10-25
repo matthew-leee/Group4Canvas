@@ -1,3 +1,4 @@
+fill = `rgba(200,200,200,1)`
 function slide() {
     let r = document.getElementById("red").value;
     let g = document.getElementById("green").value;

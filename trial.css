@@ -118,7 +118,7 @@ canvas {
     background-color: transparent;
 }
 
-#canvas-static{
+#canvas-bg{
     z-index: 0;
     background-color: white;
 }

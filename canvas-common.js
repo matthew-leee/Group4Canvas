@@ -3,6 +3,8 @@ let canvasReal = document.getElementById(`canvas-1`);
 let contextReal = canvasReal.getContext('2d');
 let canvasDraft = document.getElementById(`canvas-draft`);
 let contextDraft = canvasDraft.getContext('2d');
+let canvasBg = document.getElementById(`canvas-bg`);
+let contextBg = canvasBg.getContext('2d');
 let currentFunction;
 let dragging = false;
 let layerCreate = false;

@@ -11,7 +11,7 @@ class DrawingPolygon extends PaintFunction{
         this.contextDraft.lineCap = 'round';
         this.contextReal.lineWidth = stroke;
         this.contextReal.lineCap = 'round';
-        this.contextDraft.strokeStyle = "#000";
+        this.contextDraft.strokeStyle = `${strokeStyle}`;
         this.origX = coord[0];
         this.origY = coord[1];
         clickArr.push([coord[0], coord[1]])
@@ -42,6 +42,7 @@ class DrawingPolygon extends PaintFunction{
             };
             // this.contextReal.lineTo(clickArr[0][0], clickArr[0][1])
             this.contextReal.closePath()
+            this.contextReal.strokeStyle = `${strokeStyle}`;
             this.contextReal.stroke()
             this.contextReal.fillStyle = fill;
             this.contextReal.fill();

@@ -19,6 +19,7 @@
     <div class="canvas">
 
         <div class="buttons">
+
             <div class="button drawRect">
                 <div class="buttonContent">
                     <i class="drop fas fa-vector-square" id="drawRect"></i>
@@ -47,6 +48,12 @@
                 <div class="buttonContent">
                     <i class="drop fas fa-pen-nib" id="drawPen"></i>
                     <p>Pen tool</p>
+                </div>
+            </div>
+            <div class="button smile">
+                <div class="buttonContent">
+                    <i class="drop far fa-smile" id="smile"></i>
+                    <p>Smile</p>
                 </div>
             </div>
             <div class="button eraser">
@@ -78,50 +85,85 @@
 
         <div class="style">
             <div class="stylePanel">
-                <div class="panel" id = "fillPanel">
+                <div class="panel" id="fillPanel">
                     <p>Fill</p>
                 </div>
-                <div class="panel" id = "strokePanel">
+                <div class="panel" id="strokePanel">
                     <p>Stroke</p>
                 </div>
             </div>
             <div class="styleTopPanel">
-                    <div class="topPanel" id = "fillTopPanel">
-                        <p>Fill</p>
-                    </div>
-                    <div class="topPanel" id = "strokeTopPanel">
-                        <p>Stroke</p>
-                    </div>
+                <div class="topPanel" id="fillTopPanel">
+                    <p>Fill</p>
                 </div>
+                <div class="topPanel" id="strokeTopPanel">
+                    <p>Stroke</p>
+                </div>
+            </div>
             <div class="fill">
-                <div class="dropDown" id="slideFill">
-                    <p id="slideRed">Red (Max: 255): 125</p>
-                    <input type="range" min="0" max="255" value="125" class="slider" id="red" oninput="slide()">
-                    <p id="slideGreen">Green (Max: 255): 125</p>
-                    <input type="range" min="0" max="255" value="125" class="slider" id="green" oninput="slide()">
-                    <p id="slideBlue">Blue (Max: 255): 125</p>
-                    <input type="range" min="0" max="255" value="125" class="slider" id="blue" oninput="slide()">
+                <div id="slideFill">
+                    <p id="slideRed">Red (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="red" oninput="slide()">
+                    <p id="slideGreen">Green (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="green" oninput="slide()">
+                    <p id="slideBlue">Blue (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="blue" oninput="slide()">
                     <p id="slideA">Opacity (Max: 100): 100</p>
                     <input type="range" min="0" max="100" value="100" class="slider" id="A" oninput="slide()">
                 </div>
             </div>
             <div class="stroke">
-                <div class="dropDown" id="dropStroke">
-                    <p>
-                        <label for="amount">Adjust Stroke (Max: 100px) : </label>
-                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                    </p>
-                    <div class="slider" id="slider-range-max"></div>
+                <div id="dropStroke">
+                    <p id="slideStroke">Stroke (Max: 100): 1</p>
+                    <input type="range" min="0" max="100" value="1" class="slider" id="stroke" oninput="slideStroke()">
+                </div>
+                <div id="slideFillS">
+                    <p id="slideRedS">Red (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="redS" oninput="slideStroke()">
+                    <p id="slideGreenS">Green (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="greenS" oninput="slideStroke()">
+                    <p id="slideBlueS">Blue (Max: 255): 200</p>
+                    <input type="range" min="0" max="255" value="200" class="slider" id="blueS" oninput="slideStroke()">
+                    <p id="slideAS">Opacity (Max: 100): 100</p>
+                    <input type="range" min="0" max="100" value="100" class="slider" id="AS" oninput="slideStroke()">
                 </div>
             </div>
-            <div class="layer">
+
+            <div class="stylePanel2">
+                <div class="panel2" id="imgPanel">
+                    <p>+Image</p>
+                </div>
+            </div>
+
+            <div class="stylePanel3">
+                <div class="panel2" id="savePanel">
+                    <p>Save</p>
+                </div>
+            </div>
+
+            <div class="image">
+                <div class="imgTitle">
+                    <p>Choose Your fav img!</p>
+                </div>
+                <div class="img">
+                    <img src="sunset2.jpg" alt="Sunset" id="img1">
+                    <img src="field.jpg" alt="Field" id="img2">
+                    <img src="hkskyline.jpg" alt="Hong Kong" id="img3">
+                    <img src="stars.jpg" alt="Starry Night" id="img4">
+                </div>
+            </div>
+
+            <div class="save">
+                
+            </div>
+            <!-- <div class="layer">
                 <div class="layerTitle">
                     <p>Create new Layer!</p>
                 </div>
                 <ul id="sortable">
-                    <li class="ui-state-default" order="1">Layer 1</li>
+                    <li class="ui-state-default" id="1">Layer 1</li>
                 </ul>
-            </div>
+            </div> -->
         </div>
 
         <div class="canvasBox">
@@ -137,20 +179,45 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
-    <script type='text/javascript' src="colorSlider.js"></script>
+
     <script type='text/javascript' src="canvas-common.js"></script>
+    <!-- <script type='text/javascript' src="addLayer.js"></script> -->
+    <script type='text/javascript' src="fillSlider.js"></script>
+    <script type='text/javascript' src="strokeSlider.js"></script>
     <script type='text/javascript' src="stylePanel.js"></script>
-    <script type='text/javascript' src="addLayer.js"></script>
     <script type='text/javascript' src="drawing-line.js"></script>
     <script type='text/javascript' src="drawing-rectangle.js"></script>
     <script type='text/javascript' src="drawing-circle.js"></script>
     <script type='text/javascript' src="drawing-stLine.js"></script>
     <script type='text/javascript' src="drawing-pen.js"></script>
     <script type='text/javascript' src="drawing-polygon.js"></script>
+    <script type='text/javascript' src="smiley-face.js"></script>
     <script type='text/javascript' src="eraser.js"></script>
     <script type='text/javascript' src="reundo.js"></script>
+    <script type='text/javascript' src="addImage.js"></script>
     <script type='text/javascript'>
-        //defult
+        //responsive
+        $(window).on("resize", () => {
+            let w = $(window).width();
+            let h = $(window).height();
+            if (w < 1000 || h < 700) {
+                $("canvas").attr({
+                    width: "350px",
+                    height: "500px",
+                })
+            } else if (w >= 1000 || h >= 700) {
+                $("canvas").attr({
+                    width: "600px",
+                    height: "600px",
+                })
+            }
+        })
+
+        // //binding currentFunction to layer() 
+        // let layerBind = layer.bind(currentFunction);
+        // layerBind();
+
+        //default
         currentFunction = new DrawingLine(contextReal, contextDraft);
 
         $("#drawRect").click(() => {
@@ -171,15 +238,16 @@
 
         $("#drawPen").click(() => {
             currentFunction = new DrawingPen(contextReal, contextDraft);
-            // $(".drawPen").after(`
-            // <button id = "finish">Finish</button>
-            // `)
         })
         $('#eraser').click(() => {
             currentFunction = new Eraser(contextReal, contextDraft);
         })
         $('#drawPolygon').click(() => {
             currentFunction = new DrawingPolygon(contextReal, contextDraft);
+        })
+
+        $("#smile").click(() => {
+            currentFunction = new Smiley(contextReal, contextDraft);
         })
 
         $('#undo').on('click', function () {
@@ -189,6 +257,22 @@
         $('#redo').on('click', function () {
             cRedo();
         });
+
+        $("#img1").click(() => {
+            currentFunction = new addImage ('sunset2.jpg',contextReal,contextDraft);
+        })
+
+        $("#img2").click(() => {
+            currentFunction = new addImage ('field.jpg',contextReal,contextDraft);
+        })
+
+        $("#img3").click(() => {
+            currentFunction = new addImage ('hkskyline.jpg',contextReal,contextDraft);
+        })
+
+        $("#img4").click(() => {
+            currentFunction = new addImage ('stars.jpg',contextReal,contextDraft);
+        })
 
     </script>
 

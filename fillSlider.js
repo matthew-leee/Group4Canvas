@@ -6,7 +6,7 @@ function slide() {
     $("#slideRed").text(`Red (Max: 255): ${r}`);
     $("#slideGreen").text(`Green (Max: 255): ${g}`);
     $("#slideBlue").text(`Blue (Max: 255): ${b}`);
-    $("#slideA").text(`Opacity (Max: 100): ${a*100}`);
+    $("#slideA").text(`Opacity (Max: 100): ${Math.round(a*100)}`);
     $("#slideFill").css("background-color", `rgba(${r}, ${g}, ${b}, ${a})`)
     fill = `rgba(${r}, ${g}, ${b}, ${a})`
 }

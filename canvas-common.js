@@ -1,14 +1,19 @@
-let canvasReal = document.getElementById('canvas-1');
+
+let canvasReal = document.getElementById(`canvas-1`);
 let contextReal = canvasReal.getContext('2d');
-let canvasDraft = document.getElementById('canvas-draft');
+let canvasDraft = document.getElementById(`canvas-draft`);
 let contextDraft = canvasDraft.getContext('2d');
 let currentFunction;
 let dragging = false;
+let layerCreate = false;
 let fill;
 let stroke;
+let strokeStyle;
 let radius;
 let clickCount = 0;
 let clickArr = [];
+
+
 
 $('#canvas-draft').mousedown(function (e) {
     let mouseX = e.offsetX;
@@ -61,6 +66,10 @@ $('body').keydown(function (e) {
     currentFunction.onKeyEnter(keypressed, e);
 });
 
+$(".layerTitle").on("click", function(){
+    currentFunction.canvasReal = canvasReal;
+})
+
 // controlling some buttons
 
 $("#dropFill").click(function (e) {
@@ -79,19 +88,7 @@ $("#styleStroke").click(function () {
 
 //stroke slider
 
-$("#slider-range-max").slider({
-    range: "max",
-    min: 1,
-    max: 100,
-    orientation: "horizontal",
-    value: 1,
-    slide: function (event, ui) {
-        $("#amount").val(ui.value);
-        stroke = ui.value;
-    }
-});
 
-$("#amount").val($("#slider-range-max").slider("value"));
 
 class PaintFunction {
     constructor() { }
@@ -103,4 +100,5 @@ class PaintFunction {
     onMouseEnter() { }
     onKeyEnter() { } //new add
     onMouseDownWithoutCanvas() { } //new add
+    onLayerCreate() { } //new add
 }

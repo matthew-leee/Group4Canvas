@@ -53,7 +53,7 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 1vw;
-    box-shadow: 0 0 20px rgb(30, 150, 255);
+    box-shadow: 0 0 1.5vw rgb(30, 150, 255);
 }
 
 .buttonContent{
@@ -81,15 +81,16 @@ body{
 .drawCircle{grid-area: a2; background-color: rgb(223,198,238)}
 .drawStLine{grid-area: a3; background-color: rgb(185,221,231)}
 .drawLine{grid-area: a4; background-color: rgb(236,177,169)}
-.drawPen{grid-area: a5; background-color: rgb(249,197,138)}
+.drawPen{grid-area: a9; background-color: rgb(249,197,138)}
+.smile{grid-area: a6; background-color: rgb(159,195,230)}
 .eraser{grid-area: a7; background-color: rgb(245,215,122)}
 .polygon{grid-area: a8; background-color: rgb(130,230,180)}
-.redo{grid-area: a9; background-color: rgb(255,110,130)}
+.redo{grid-area: a5; background-color: rgb(255,110,130)}
 .undo{grid-area: a0; background-color: rgb(202,168,230)}
 
 .canvasBox {
     grid-area: b;
-    width: 62vw;
+    width: 62.1vw;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -101,6 +102,7 @@ body{
 canvas {
     position: absolute;
     border:1px black solid;
+    background-color: transparent;
 }
 
 #canvas-static{
@@ -110,21 +112,26 @@ canvas {
 #canvas-1 {z-index: 1}
 #canvas-draft {z-index: 2}
 
+.save {
+    top: 75vh;
+}
+
 .style {
     grid-area: c;
     display: grid;
     grid-template-columns: 19vw;
-    grid-template-rows: 25vh 25vh 50vh;
+    grid-template-rows: 25vh 25vh 25vh 25vh;
     grid-template-areas: 
     "d"
     "d"
-    "f";
+    "f"
+    "g";
     align-items: flex-start;
     background: linear-gradient(to bottom, #f1f2b5, #135058);
 }
 
-.stylePanel{
-    grid-area: d;
+.stylePanel, .stylePanel2, .stylePanel3{
+    /* grid-area: d; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -134,8 +141,13 @@ canvas {
     position: relative;
     color: white;
 }
-#fillPanel, #fillTopPanel{background-color: rgba(65,74,76,0.3);}
-#strokePanel, #strokeTopPanel{background-color: rgba(35,43,43,0.3);}
+.stylePanel {grid-area: d}
+.stylePanel2 {grid-area: f}
+.stylePanel3 {grid-area: g}
+
+#fillPanel, #fillTopPanel, #imgPanel{background-color: rgba(65,74,76,0.3);}
+#strokePanel, #strokeTopPanel, #savePanel{background-color: rgba(35,43,43,0.3);}
+
 .panel {
     width: 100%;
     height: 50%;
@@ -143,6 +155,17 @@ canvas {
     justify-content: center;
     align-items: center;
     font-size: 5vw;
+    cursor: pointer;
+}
+
+.panel2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+    cursor: pointer;
 }
 
 .styleTopPanel {
@@ -151,6 +174,7 @@ canvas {
     width: 100%;
     display: none;
     align-items: flex-start;
+    cursor: pointer;
 }
 .topPanel {
     width: 50%;
@@ -169,6 +193,7 @@ canvas {
     display: none;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .stroke {
@@ -177,32 +202,64 @@ canvas {
     grid-area: d;
     margin-top: 10vh;
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
-#slider-range-max{
-    margin: 10px;
-    display: block;
-    background-color: red;
-    width: 200px;
-    height: 15px;
+.image {
+    height: 100%;
+    width: 100%;
+    grid-area: f;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-p {
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+.imgTitle > p {
+    margin-top : 0;
+    margin-bottom: 1vw;
+    border: 0 0 0 0;
+    font-size: 1.5vw;
 }
 
-#slideFill {
+.img {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "i1 i2 i3 i4";
+    grid-column-gap: 1vw;
+}
+
+.img > img {
+    width: 3vw;
+    height: 3vw;
+}
+
+
+#img1{grid-area: i1} #img2{grid-area: i2} #img3{grid-area: i3} #img4{grid-area: i4}
+
+#slideFill, #slideFillS {
+
     align-self: center;
     justify-self: center;
     width: 15vw;
     height: 30vh;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    background-color: rgb(125,125,125);
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(200,200,200, 1);
+    border-radius: 1vw;
+    box-shadow: 0 0 10px rgb(30, 150, 255);
+}
+
+#slideFill > p, #slideFillS > p, #slideStroke{
+    margin: 0 0 0 0;
+    border: 0 0 0 0;
+    font-size: 1vw;
 }
 
 .slider {
@@ -210,13 +267,13 @@ p {
     appearance: none;
     width: 10vw;
     height: 2vh;
-    background: #d3d3d3;
+    background: #FFFFFF;
     outline: none;
     opacity: 0.5;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 .slider:hover {
@@ -226,13 +283,15 @@ p {
 .slider::-webkit-slider-thumb{
     -webkit-appearance: none;
     appearance: none;
-    width: 15px;
-    height: 15px;
+    width: 2vh;
+    height: 2vh;
     background: yellow;
     cursor: pointer;
 }
 
-.layer {
+
+
+/* .layer {
     grid-area: f;
     display: flex;
     justify-content: center;
@@ -248,14 +307,15 @@ ul {
 }
 
 li, .layerTitle > p { 
-    margin: 5px; 
-    padding: 5px; 
-    width: 300px; 
-    height: 50px;
+    margin: 0.5vw;; 
+    padding: 0.5vw; 
+    width: 18vw; 
+    height: 3vw;
     background-color: aquamarine;
     cursor: pointer;
+    font-size: 1.5vw;
 }
 
 .layerTitle > p {
     background-color: rgba(255, 217, 0, 1);
-}
+} */

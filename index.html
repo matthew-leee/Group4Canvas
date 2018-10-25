@@ -146,10 +146,10 @@
                     <p>Choose Your fav img!</p>
                 </div>
                 <div class="img">
-                    <img src="" alt="" id="img1">
-                    <img src="" alt="" id="img2">
-                    <img src="" alt="" id="img3">
-                    <img src="" alt="" id="img4">
+                    <img src="sunset2.jpg" alt="Sunset" id="img1">
+                    <img src="field.jpg" alt="Field" id="img2">
+                    <img src="hkskyline.jpg" alt="Hong Kong" id="img3">
+                    <img src="stars.jpg" alt="Starry Night" id="img4">
                 </div>
             </div>
 
@@ -194,6 +194,7 @@
     <script type='text/javascript' src="smiley-face.js"></script>
     <script type='text/javascript' src="eraser.js"></script>
     <script type='text/javascript' src="reundo.js"></script>
+    <script type='text/javascript' src="addImage.js"></script>
     <script type='text/javascript'>
         //responsive
         $(window).on("resize", () => {
@@ -256,6 +257,22 @@
         $('#redo').on('click', function () {
             cRedo();
         });
+
+        $("#img1").click(() => {
+            currentFunction = new addImage ('sunset2.jpg',contextReal,contextDraft);
+        })
+
+        $("#img2").click(() => {
+            currentFunction = new addImage ('field.jpg',contextReal,contextDraft);
+        })
+
+        $("#img3").click(() => {
+            currentFunction = new addImage ('hkskyline.jpg',contextReal,contextDraft);
+        })
+
+        $("#img4").click(() => {
+            currentFunction = new addImage ('stars.jpg',contextReal,contextDraft);
+        })
 
     </script>
 

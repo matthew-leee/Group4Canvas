@@ -104,7 +104,7 @@ canvas {
     border:1px black solid;
 }
 
-#canvas-static{
+#canvas-bg{
     z-index: 0;
     background-color: white;
 }

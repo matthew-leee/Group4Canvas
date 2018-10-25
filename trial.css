@@ -238,9 +238,11 @@ canvas {
     height: 3vw;
 }
 
+
 #img1{grid-area: i1} #img2{grid-area: i2} #img3{grid-area: i3} #img4{grid-area: i4}
 
 #slideFill, #slideFillS {
+
     align-self: center;
     justify-self: center;
     width: 15vw;

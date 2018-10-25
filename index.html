@@ -114,8 +114,8 @@
             </div>
             <div class="stroke">
                 <div id="dropStroke">
-                    <p id="slideStroke">Stroke (Max: 100): 1</p>
-                    <input type="range" min="0" max="100" value="1" class="slider" id="stroke" oninput="slideStroke()">
+                    <p id="slideStroke">Stroke (Max: 100): 3</p>
+                    <input type="range" min="0" max="100" value="3" class="slider" id="stroke" oninput="slideStroke()">
                 </div>
                 <div id="slideFillS">
                     <p id="slideRedS">Red (Max: 255): 200</p>
@@ -198,7 +198,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
-    <script src="firebase.js"></script>
+    <!-- <script src="firebase.js"></script> -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
@@ -295,24 +295,29 @@
         
         document.title = `Current: ${currentFunction.constructor.name}`;
 
-        $("#img1").click(() => {
-            currentFunction = new addImage('sunset2.jpg', contextReal, contextDraft);
-        })
+        // $("#img1").click(() => {
+        //     currentFunction = new addImage('sunset2.jpg', contextReal, contextDraft);
+        // })
 
-        $("#img2").click(() => {
-            currentFunction = new addImage('field.jpg', contextReal, contextDraft);
-        })
+        // $("#img2").click(() => {
+        //     currentFunction = new addImage('field.jpg', contextReal, contextDraft);
+        // })
 
-        $("#img3").click(() => {
-            currentFunction = new addImage('hkskyline.jpg', contextReal, contextDraft);
-        })
+        // $("#img3").click(() => {
+        //     currentFunction = new addImage('hkskyline.jpg', contextReal, contextDraft);
+        // })
 
-        $("#img4").click(() => {
-            currentFunction = new addImage('stars.jpg', contextReal, contextDraft);
-        })
+        // $("#img4").click(() => {
+        //     currentFunction = new addImage('stars.jpg', contextReal, contextDraft);
+        // })
 
-        $("#savePanel").click(function () {
-            download(canvasReal, 'myimg.png');
+        $("#savePanel").click(function () { 
+            var canvasPic = new Image();
+            canvasPic.src = canvasReal.toDataURL();
+            canvasPic.onload = function () { 
+                contextBg.drawImage(canvasPic, 0, 0)
+                download(canvasBg, 'myimg.png');
+            }; 
         })
 
         // Source from:  http://stackoverflow.com/questions/18480474/how-to-save-an-image-from-canvas
@@ -329,6 +334,13 @@
             /// attribute is set the content pointed to by link will be
             /// pushed as "download" in HTML5 capable browsers
             lnk.href = canvas.toDataURL("image/png;base64");
+            contextBg.clearRect(0,0,canvasReal.width,canvasReal.height);
+            if (BgIsColor) {
+            contextBg.fillStyle = bgColor;
+            contextBg.fillRect(0, 0, canvasBg.width, canvasBg.height);
+            } else {
+            contextBg.drawImage(img,0,0);
+            }
 
             /// create a "fake" click-event to trigger the download
             if (document.createEvent) {

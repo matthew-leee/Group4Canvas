@@ -16,9 +16,6 @@ class DrawingPolygon extends PaintFunction{
         this.origY = coord[1];
         clickArr.push([coord[0], coord[1]])
         this.contextDraft.beginPath();
-        console.log(coord[0]);
-        console.log(coord[1]);
-        console.log(clickArr);
         this.contextDraft.arc(this.origX, this.origY, 5, 0, 2 * Math.PI)
         this.contextDraft.stroke();
         if (clickCount > 0 && !(clickArr[0][0] <= coord[0] +10 && clickArr[0][0] >= coord[0] -10 && clickArr[0][1] <= coord[1] +10 && clickArr[0][1] >= coord[1] -10)) {

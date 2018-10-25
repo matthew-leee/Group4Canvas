@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class DrawingLine extends PaintFunction{
     constructor(contextReal){
         super();
@@ -7,7 +6,7 @@ class DrawingLine extends PaintFunction{
 
     onMouseDown(coord,event){
         this.context.strokeStyle = `${fill}`;
-        this.context.lineJoin = "bezel";
+        // this.context.lineJoin = "bezel";
         this.context.lineWidth = stroke;
         this.context.lineCap = 'round';
         this.context.beginPath();
@@ -19,9 +18,7 @@ class DrawingLine extends PaintFunction{
     }
 
     onMouseMove(){}
-    onMouseUp(coord){
-        this.draw(coord[0],coord[1]);
-    }
+    onMouseUp(){}
     onMouseLeave(){}
     onMouseEnter(){}
     onKeyEnter(){}
@@ -32,6 +29,8 @@ class DrawingLine extends PaintFunction{
         this.context.closePath();
         this.context.stroke();    
     }
+<<<<<<< HEAD
+=======
 =======
 class DrawingLine extends PaintFunction{
     constructor(contextReal){
@@ -40,7 +39,7 @@ class DrawingLine extends PaintFunction{
     }
 
     onMouseDown(coord,event){
-        this.context.strokeStyle = `${fill}`;
+        this.context.strokeStyle = `${strokeStyle}`;
         this.context.lineJoin = "bezel";
         this.context.lineWidth = stroke;
         this.context.lineCap = 'round';
@@ -65,4 +64,5 @@ class DrawingLine extends PaintFunction{
         this.context.stroke();    
     }
 >>>>>>> 09a0c4ad2cfb38e2f1c55e0221529a74f0393508
+>>>>>>> caec504ba50e5dee52efed8fdd1a4880eaaea095
 }

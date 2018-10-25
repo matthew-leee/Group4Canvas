@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let dragCount = [];
 let c;
 
@@ -55,7 +54,7 @@ class DrawingPen extends PaintFunction {
             this.contextDraft.moveTo(clickArr[0][0], clickArr[0][1]);
             for (let i = 0; i < clickCount; i++) {
                 this.contextDraft.lineTo(clickArr[i][0], clickArr[i][1]);
-                this.contextDraft.stroke();
+                // this.contextDraft.stroke();
             };
             this.contextReal.beginPath();
             this.contextReal.moveTo(clickArr[0][0], clickArr[0][1]);
@@ -83,6 +82,8 @@ class DrawingPen extends PaintFunction {
     //     this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
     // })
 }
+<<<<<<< HEAD
+=======
 =======
 let dragCount = [];
 let c;
@@ -98,11 +99,11 @@ class DrawingPen extends PaintFunction {
     onMouseDown(coord) {
         
         this.contextReal.fillStyle = `${fill}`;
-        this.contextReal.strokeStyle = `${fill}`;
+        this.contextReal.strokeStyle = `${strokeStyle}`;
         this.contextReal.lineWidth = stroke;
         this.contextReal.lineCap = "round";
         this.contextDraft.fillStyle = `${fill}`;
-        this.contextDraft.strokeStyle = `${fill}`;
+        this.contextDraft.strokeStyle = `${strokeStyle}`;
         this.contextDraft.lineCap = "round";
         this.origX = coord[0];
         this.origY = coord[1];
@@ -164,3 +165,4 @@ class DrawingPen extends PaintFunction {
 }
 
 >>>>>>> 09a0c4ad2cfb38e2f1c55e0221529a74f0393508
+>>>>>>> caec504ba50e5dee52efed8fdd1a4880eaaea095

@@ -172,11 +172,11 @@
                 </div>
             </div>
 
-            
-            
+
+
 
             <div class="save">
-                
+
             </div>
             <!-- <div class="layer">
                 <div class="layerTitle">
@@ -196,6 +196,9 @@
 
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+    <script src="firebase.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
@@ -282,20 +285,55 @@
         });
 
         $("#img1").click(() => {
-            currentFunction = new addImage ('sunset2.jpg',contextReal,contextDraft);
+            currentFunction = new addImage('sunset2.jpg', contextReal, contextDraft);
         })
 
         $("#img2").click(() => {
-            currentFunction = new addImage ('field.jpg',contextReal,contextDraft);
+            currentFunction = new addImage('field.jpg', contextReal, contextDraft);
         })
 
         $("#img3").click(() => {
-            currentFunction = new addImage ('hkskyline.jpg',contextReal,contextDraft);
+            currentFunction = new addImage('hkskyline.jpg', contextReal, contextDraft);
         })
 
         $("#img4").click(() => {
-            currentFunction = new addImage ('stars.jpg',contextReal,contextDraft);
+            currentFunction = new addImage('stars.jpg', contextReal, contextDraft);
         })
+
+        $("#savePanel").click(function () {
+            download(canvasReal, 'myimg.png');
+        })
+
+
+
+
+        // Source from:  http://stackoverflow.com/questions/18480474/how-to-save-an-image-from-canvas
+
+        /* Canvas Donwload */
+        function download(canvas, filename) {
+            /// create an "off-screen" anchor tag
+            var lnk = document.createElement('a'), e;
+
+            /// the key here is to set the download attribute of the a tag
+            lnk.download = filename;
+
+            /// convert canvas content to data-uri for link. When download
+            /// attribute is set the content pointed to by link will be
+            /// pushed as "download" in HTML5 capable browsers
+            lnk.href = canvas.toDataURL("image/png;base64");
+
+            /// create a "fake" click-event to trigger the download
+            if (document.createEvent) {
+                e = document.createEvent("MouseEvents");
+                e.initMouseEvent("click", true, true, window,
+                    0, 0, 0, 0, 0, false, false, false,
+                    false, 0, null);
+
+                lnk.dispatchEvent(e);
+            } else if (lnk.fireEvent) {
+                lnk.fireEvent("onclick");
+            }
+        }
 
     </script>
 

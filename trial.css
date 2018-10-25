@@ -181,6 +181,7 @@ canvas {
     cursor: pointer;
 }
 
+
 .stylePanel3 > .panel2 {
     -webkit-transition: .2s;
     transition: font-size .2s;

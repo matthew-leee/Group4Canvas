@@ -65,10 +65,6 @@ $('body').keydown(function (e) {
     currentFunction.onKeyEnter(keypressed, e);
 });
 
-$(".layerTitle").on("click", function(){
-    currentFunction.canvasReal = canvasReal;
-})
-
 // controlling some buttons
 
 $("#dropFill").click(function (e) {

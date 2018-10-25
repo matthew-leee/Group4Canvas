@@ -81,11 +81,11 @@ body{
 .drawCircle{grid-area: a2; background-color: rgb(223,198,238)}
 .drawStLine{grid-area: a3; background-color: rgb(185,221,231)}
 .drawLine{grid-area: a4; background-color: rgb(236,177,169)}
-.drawPen{grid-area: a5; background-color: rgb(249,197,138)}
+.drawPen{grid-area: a9; background-color: rgb(249,197,138)}
 .smile{grid-area: a6; background-color: rgb(159,195,230)}
 .eraser{grid-area: a7; background-color: rgb(245,215,122)}
 .polygon{grid-area: a8; background-color: rgb(130,230,180)}
-.redo{grid-area: a9; background-color: rgb(255,110,130)}
+.redo{grid-area: a5; background-color: rgb(255,110,130)}
 .undo{grid-area: a0; background-color: rgb(202,168,230)}
 
 .canvasBox {
@@ -208,6 +208,37 @@ canvas {
     cursor: pointer;
 }
 
+.image {
+    height: 100%;
+    width: 100%;
+    grid-area: f;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.imgTitle > p {
+    margin-top : 0;
+    margin-bottom: 1vw;
+    border: 0 0 0 0;
+    font-size: 1.5vw;
+}
+
+.img {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "i1 i2 i3 i4";
+    grid-column-gap: 1vw;
+}
+
+.img > img {
+    width: 3vw;
+    height: 3vw;
+}
+
+#img1{grid-area: i1} #img2{grid-area: i2} #img3{grid-area: i3} #img4{grid-area: i4}
 
 #slideFill, #slideFillS {
     align-self: center;

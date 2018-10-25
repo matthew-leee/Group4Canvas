@@ -10,7 +10,7 @@ function slideStroke() {
     $("#slideRedS").text(`Red (Max: 255): ${rS}`);
     $("#slideGreenS").text(`Green (Max: 255): ${gS}`);
     $("#slideBlueS").text(`Blue (Max: 255): ${bS}`);
-    $("#slideAS").text(`Opacity (Max: 100): ${aS*100}`);
+    $("#slideAS").text(`Opacity (Max: 100): ${Math.round(aS*100)}`);
     $("#slideFillS").css("background-color", `rgba(${rS}, ${gS}, ${bS}, ${aS})`)
     strokeStyle= `rgba(${rS}, ${gS}, ${bS}, ${aS})`
 }

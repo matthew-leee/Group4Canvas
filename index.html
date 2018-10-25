@@ -223,13 +223,14 @@
     <script type='text/javascript' src="addImage.js"></script>
     <script type='text/javascript'>
         //responsive
-        $(window).on("resize", () => {
+        $(window).on("load", () => {
             let w = $(window).width();
             let h = $(window).height();
-            if (w < 1000 || h < 700) {
+            if (w < 700 || h < 700) {
                 $("canvas").attr({
-                    width: "350px",
-                    height: "500px",
+                    
+                    width: ((600 < window.innerWidth * 0.4) ? "600px" : window.innerWidth * 0.6),
+                    height: ((600 < window.innerHeight * 0.4) ? "600px" : window.innerHeight * 0.8 ),
                 })
             } else if (w >= 1000 || h >= 700) {
                 $("canvas").attr({
@@ -246,43 +247,53 @@
         //default
         currentFunction = new DrawingLine(contextReal, contextDraft);
 
-        $("#drawRect").click(() => {
+        $(".drawRect").click(() => {
             currentFunction = new DrawingRectangle(contextReal, contextDraft);
+            document.title = `Current: ${currentFunction.constructor.name}`;
         })
 
-        $("#drawLine").click(() => {
+        $(".drawLine").click(() => {
             currentFunction = new DrawingLine(contextReal, contextDraft);
+            document.title = `Current: ${currentFunction.constructor.name}`;
         })
 
-        $("#drawStLine").click(() => {
+        $(".drawStLine").click(() => {
             currentFunction = new DrawingStLine(contextReal, contextDraft);
+            document.title = `Current: ${currentFunction.constructor.name}`;
         })
 
-        $("#drawCircle").click(() => {
+        $(".drawCircle").click(() => {
             currentFunction = new DrawingCircle(contextReal, contextDraft);
+            document.title = `Current: ${currentFunction.constructor.name}`;
         })
 
-        $("#drawPen").click(() => {
+        $(".drawPen").click(() => {
             currentFunction = new DrawingPen(contextReal, contextDraft);
+            document.title = `Current: ${currentFunction.constructor.name}`;
         })
-        $('#eraser').click(() => {
+        $('.eraser').click(() => {
             currentFunction = new Eraser(contextReal, contextDraft);
+            document.title = `Current: ${currentFunction.constructor.name}`;
         })
-        $('#drawPolygon').click(() => {
+        $('.polygon').click(() => {
             currentFunction = new DrawingPolygon(contextReal, contextDraft);
+            document.title = `Current: ${currentFunction.constructor.name}`;
         })
 
-        $("#smile").click(() => {
+        $(".smile").click(() => {
             currentFunction = new Smiley(contextReal, contextDraft);
+            document.title = `Current: ${currentFunction.constructor.name}`;
         })
 
-        $('#undo').on('click', function () {
+        $('.undo').on('click', function () {
             cUndo();
         });
 
-        $('#redo').on('click', function () {
+        $('.redo').on('click', function () {
             cRedo();
         });
+        
+        document.title = `Current: ${currentFunction.constructor.name}`;
 
         $("#img1").click(() => {
             currentFunction = new addImage('sunset2.jpg', contextReal, contextDraft);
@@ -303,9 +314,6 @@
         $("#savePanel").click(function () {
             download(canvasReal, 'myimg.png');
         })
-
-
-
 
         // Source from:  http://stackoverflow.com/questions/18480474/how-to-save-an-image-from-canvas
 

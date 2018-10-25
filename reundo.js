@@ -6,7 +6,6 @@ function cPush() {
     cStep++;
     if (cStep < cPushArray.length) { cPushArray.length = cStep; }
     cPushArray.push(canvasReal.toDataURL());
-    document.title = cStep + ":" + cPushArray.length;
 }
 
 function cUndo() {
@@ -16,7 +15,6 @@ function cUndo() {
         canvasPic.src = cPushArray[cStep];
         contextReal.clearRect(0,0,canvasReal.width,canvasReal.height)
         canvasPic.onload = function () { contextReal.drawImage(canvasPic, 0, 0); }
-        document.title = cStep + ":" + cPushArray.length;
         clickCount = 0;
     }
 }
@@ -27,7 +25,6 @@ function cRedo() {
         canvasPic.src = cPushArray[cStep];
         contextReal.clearRect(0,0,canvasReal.width,canvasReal.height)
         canvasPic.onload = function () { contextReal.drawImage(canvasPic, 0, 0); }
-        document.title = cStep + ":" + cPushArray.length;
         clickCount = 0;
     }
 }

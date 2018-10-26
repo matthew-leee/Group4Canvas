@@ -1,4 +1,5 @@
 strokeStyle= `rgba(200,200,200,1)`
+stroke = 3;
 aSS = 1;
 function slideStroke() {
     //control lineWidth

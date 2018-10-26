@@ -8,8 +8,8 @@ class DrawingLine extends PaintFunction{
     onMouseDown(coord,event){
         this.context.strokeStyle = strokeStyle;
         this.contextDraft.strokeStyle = strokeStyle;
-        this.context.lineWidth = 25;
-        this.contextDraft.lineWidth = 25;
+        this.context.lineWidth = stroke;
+        this.contextDraft.lineWidth = stroke;
         this.context.lineCap = 'round';
         this.contextDraft.lineCap = 'round';
         this.context.beginPath();

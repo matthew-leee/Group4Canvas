@@ -8,12 +8,13 @@ let currentFunction;
 let dragging = false;
 let layerCreate = false;
 let fill;
-let stroke = "1";
+let stroke;
 let strokeStyle;
 let bgColor;
 let radius;
 let clickCount = 0;
 let clickArr = [];
+let BgIsColor = true;
 
 $('#canvas-draft').mousedown(function (e) {
     let mouseX = e.offsetX;
